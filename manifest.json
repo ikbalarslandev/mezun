@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "mezun",
+  "version": "0.0.0",
+  "action": {},
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "icons": {},
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  }
+}
