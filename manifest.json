@@ -3,8 +3,8 @@
   "name": "mezun",
   "version": "0.0.0",
   "action": {},
-  "permissions": ["scripting", "tabs"],
-  "host_permissions": ["http://*/*", "https://*/*"],
+  "permissions": ["scripting", "tabs", "activeTab"],
+  "host_permissions": ["https://www.linkedin.com/*"],
   "icons": {},
   "background": {
     "service_worker": "service-worker.js",
