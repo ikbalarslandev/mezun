@@ -30,11 +30,32 @@ export function injectDiv(tabId) {
         slider.style.color = "white";
         slider.style.fontFamily = "Arial, sans-serif";
 
-        // Get the text content from the element with id "ember54"
-        const emberElement = document.getElementById("ember54");
-        if (emberElement) {
+        const companyEl = document.getElementsByClassName(
+          "job-details-jobs-unified-top-card__company-name"
+        )[0];
+
+        const companyElement = companyEl.getElementsByTagName("a")[0];
+        if (companyElement) {
           let textElement = document.createElement("div");
-          textElement.textContent = emberElement.textContent || "No text found";
+          textElement.textContent =
+            companyElement.textContent || "No text found";
+          textElement.style.marginBottom = "8px";
+          textElement.style.fontSize = "16px";
+          textElement.style.fontWeight = "bold";
+          slider.appendChild(textElement);
+        } else {
+          let notFoundElement = document.createElement("div");
+          notFoundElement.textContent = "Element #ember54 not found";
+          notFoundElement.style.color = "red";
+          notFoundElement.style.fontSize = "14px";
+          slider.appendChild(notFoundElement);
+        }
+
+        const jobTitleElement = document.getElementById("ember54");
+        if (jobTitleElement) {
+          let textElement = document.createElement("div");
+          textElement.textContent =
+            jobTitleElement.textContent || "No text found";
           textElement.style.marginBottom = "8px";
           textElement.style.fontSize = "16px";
           textElement.style.fontWeight = "bold";
