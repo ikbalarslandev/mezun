@@ -23,17 +23,42 @@ export function injectDiv(tabId) {
         slider.style.width = "22%"; // 1/6 of the viewport width
         slider.style.backgroundColor = "gray";
         slider.style.zIndex = "9999"; // Slightly below the div
-        slider.style.transition = "transform 1s ease"; // Smooth animation
+        slider.style.transition = "transform 0.5s ease"; // Smooth animation
         slider.style.transform = "translateX(100%)"; // Initially hidden off-screen
+        slider.style.padding = "10px";
+        slider.style.overflowY = "auto"; // Allow scrolling if content is large
+        slider.style.color = "white";
+        slider.style.fontFamily = "Arial, sans-serif";
 
-        // Attach the slider to the body
+        // Get the text content from the element with id "ember54"
+        const emberElement = document.getElementById("ember54");
+        if (emberElement) {
+          let textElement = document.createElement("div");
+          textElement.textContent = emberElement.textContent || "No text found";
+          textElement.style.marginBottom = "8px";
+          textElement.style.fontSize = "16px";
+          textElement.style.fontWeight = "bold";
+          slider.appendChild(textElement);
+        } else {
+          let notFoundElement = document.createElement("div");
+          notFoundElement.textContent = "Element #ember54 not found";
+          notFoundElement.style.color = "red";
+          notFoundElement.style.fontSize = "14px";
+          slider.appendChild(notFoundElement);
+        }
+
+        // Attach the slider and trigger button to the body
         document.body.appendChild(slider);
         document.body.appendChild(div);
 
-        // Event listener for the div to move the slider
+        // Event listener for the div to toggle the slider
         div.addEventListener("click", () => {
-          // Slide the slider from right to left
-          slider.style.transform = "translateX(-1%)"; // Move left
+          // Toggle the slider position
+          if (slider.style.transform === "translateX(100%)") {
+            slider.style.transform = "translateX(0)"; // Slide in
+          } else {
+            slider.style.transform = "translateX(100%)"; // Slide out
+          }
         });
       },
     })
