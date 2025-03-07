@@ -1,4 +1,4 @@
-import { injectDiv } from "./injectDiv.js";
+import { injectDiv } from "./injectDiv/index.js";
 
 export function handleTabUpdate(tabId, changeInfo, tab) {
   if (
